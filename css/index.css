@@ -1,0 +1,16 @@
+
+/* --terra-cotta: #e26d5cff;
+--air-superiority-blue: #759eb8ff;
+--gainsboro: #d8e1e9ff;
+--onyx: #313638ff;
+--rich-black-fogra-39: #080708ff; */
+
+.card {
+    background-image: url("/Assets/Poker/PokerTable.png");
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #d8e1e9ff;
+}
