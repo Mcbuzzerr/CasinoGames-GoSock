@@ -7,6 +7,8 @@
 
 .card {
     background-image: url("/Assets/Poker/PokerTable.png");
+    height: 100%;
+    width: 100%;
 }
 
 body {
