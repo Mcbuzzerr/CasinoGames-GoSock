@@ -1,5 +1,11 @@
-/* --terra-cotta: #e26d5cff;
---air-superiority-blue: #759eb8ff;
---gainsboro: #d8e1e9ff;
---onyx: #313638ff;
---rich-black-fogra-39: #080708ff; */
+:root {
+    --terra-cotta: #e26d5cff;
+    --air-superiority-blue: #759eb8ff;
+    --gainsboro: #d8e1e9ff;
+    --onyx: #313638ff;
+    --rich-black-fogra-39: #080708ff;
+}
+
+body {
+    background-color: var(--air-superiority-blue);
+}
