@@ -1,10 +1,7 @@
 const Bank = class {
-    constructor(startingBalance, playerCount) {
+    constructor(startingBalance) {
         this.betPool = 0;
-        this.players = [];
-        for (let index = 0; index < playerCount; index++) {
-            this.players.push(new Player(`Player ${index + 1}`, startingBalance));
-        }
+        this.players = new Player("Player 1", startingBalance);
     }
 
     addBet(amount, playerIndex) {
@@ -14,6 +11,21 @@ const Bank = class {
 
     betWin(winnerIndex) {
         this.players[winnerIndex].addBalance(this.betPool);
+        this.betPool = 0;
+        for (const player in this.players) {
+            player.foldBet();
+        }
+    }
+
+    betDraw() {
+        for (const player in this.players) {
+            player.returnBet();
+        }
+        this.betPool = 0;
+    }
+
+    betWinMultiplier(winnerIndex, multiplier) {
+        this.players[winnerIndex].addBalance(this.players[winnerIndex].bet * multiplier);
         this.betPool = 0;
         for (const player in this.players) {
             player.foldBet();
@@ -42,6 +54,11 @@ class Player {
     }
 
     foldBet() {
+        this.bet = 0;
+    }
+
+    returnBet() {
+        this.cash += this.bet;
         this.bet = 0;
     }
 }
