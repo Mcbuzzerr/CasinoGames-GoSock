@@ -5,10 +5,13 @@
 --onyx: #313638ff;
 --rich-black-fogra-39: #080708ff; */
 
-.card {
-    background-image: url("/Assets/Poker/PokerTable.png");
-}
-
 body {
-    background-color: #d8e1e9ff;
+    margin: 0;
+    height: 100%;
+    background-color: #014f1a;
+    background-image: url("/Assets/Overall UI/Generic Felt Mat.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
 }
