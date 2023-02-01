@@ -76,6 +76,7 @@ class Deck {
     }
 
     createDeck() {
+        this.cards = [];
         const suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
         const values = ['Ace', 'King', 'Queen', 'Jack', 'Ten', 'Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two'];
 
@@ -108,6 +109,7 @@ class Deck {
 
 class BLJDeck extends Deck {
     createDeck() {
+        this.cards = [];
         const suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
         const values = ['Ace', 'King', 'Queen', 'Jack', 'Ten', 'Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two'];
 
