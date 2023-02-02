@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/cssReset.css">
     <link rel="stylesheet" href="../css/blackjack.css">
-    <script src="../js/blackjackVisuals.js"></script>
+    <script src="../js/blackjackVisuals.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -58,7 +58,7 @@
                 <img class="chip" src="../Assets/Overall UI/chip5000.png" />
             </div>
             <div class="stack" id="buttons">
-                <div id="hitButton">
+                <div id="hitButton" onclick="hitButtonHandler()">
                     Hit
                 </div>
                 <div id="standButton">
