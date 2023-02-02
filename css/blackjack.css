@@ -1,0 +1,134 @@
+.headerBar {
+    --padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: calc(100vw - var(--padding) * 2);
+    flex-direction: row;
+    background-color: #123351;
+    color: rgb(60,153,182);
+    padding: 0 var(--padding) 0 var(--padding);
+    font-family: "ChunkFive";
+    font-size: 2rem;
+}
+
+.mainFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    /* background-color: #000; */
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    background-image: url("../Assets/BlackJack/blackJackTitle.png"), url("../Assets/Overall UI/FeltMatBlue.png");
+    background-size: 40%, cover;
+    background-repeat: no-repeat;
+    background-position: 50% 33%, center;
+    /* margin-top: -20px; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 150px;
+    justify-content: space-evenly;
+}
+
+#dealerHand, #playerHand, #deck {
+    background-image: url("../Assets/BlackJack/cardSlot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 145px;
+    width: 100px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+}
+
+.spacer {
+    width: 10px;
+    height: 150px;
+}
+
+#deck {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+}
+
+#deck img, #dealerHand img, #playerHand img {
+    /* height: 90%; */
+    width: 80px;
+    margin-top: 15px;
+}
+
+.faceUp {
+    transform: rotate(15deg);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#betDisplay {
+    justify-self: center;
+}
+
+#cashDisplay {
+    width: 200px;
+}
+
+.chip {
+    height: 100px;
+    width: 100px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.chip:hover {
+    transform: scale(1.2);
+}
+
+#hitButton, #standButton {
+    --padding: 10px;
+    background-image: url("../Assets/Overall UI/ButtonUp.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: calc(100% - var(--padding) * 2);
+    height: calc(50px - var(--padding) * 2);
+    color: black;
+    font-family: "ChunkFive";
+    font-size: 1.5rem;
+    padding: var(--padding);
+    transition: 0.3s;
+}
+
+#hitButton:hover, #standButton:hover {
+    transform: scale(1.1);
+    /* background-image: url("../Assets/Overall UI/ButtonDown.png"); */
+}
+
+#hitButton:active, #standButton:active {
+    /* transform: scale(1.2); */
+    background-image: url("../Assets/Overall UI/ButtonDown.png");
+}
