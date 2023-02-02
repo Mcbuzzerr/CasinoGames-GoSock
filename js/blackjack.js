@@ -6,15 +6,27 @@ class Blackjack {
     deck = new BLJDeck();
     deck.createDeck();
     deck.shuffleDeck();
+    bank = new Bank(1000);
     }
 
     startGame() {
+        //add bet
+        this.bank.addBet(10, 0);
+
+        //deal cards
         this.playerHand = [];
         this.dealerHand = [];
         this.playerHand.push(deck.drawCard());
         this.dealerHand.push(deck.drawCard());
         this.playerHand.push(deck.drawCard());
         this.dealerHand.push(deck.drawCard());
+
+        //play blackjack
+        while(this.playerHandValue() <= 21) {
+            //show player hand
+            //show dealer hand
+            //ask player to hit or stand
+        }
     }
 
     hit() {
@@ -49,7 +61,7 @@ class Blackjack {
         let dealerTotal = this.dealerHandValue();
         if (playerTotal == 21) {
             //player blackjack
-            
+            this.bank.betWinMultiplier(0, 2);
         } else if (playerTotal > 21) {
             //player bust
         } else if (dealerTotal > 21) {
@@ -62,7 +74,7 @@ class Blackjack {
             //dealer win
         } else {
             //tie, pays bet back
-
+            this.bank.
         }
     }
 
