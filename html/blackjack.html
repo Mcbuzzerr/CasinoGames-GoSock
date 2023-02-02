@@ -5,13 +5,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="blackjack.js"></script>
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/cssReset.css">
+    <link rel="stylesheet" href="../css/blackjack.css">
+    <script src="../js/blackjackVisuals.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div>
-
+    <div class="headerBar">
+        <div class="headerBarLeft">
+            <div id="backButton">
+                Back
+            </div>
+        </div>
+        <div class="headerBarCenter">
+            <h1>Blackjack</h1>
+        </div>
+        <div class="headerBarRight">
+            <div id="rulesButton">Rules</div>
+        </div>
+    </div>
+    <div class="mainFlex">
+        <div id="deck">
+            <img src="../Assets/Cards/cardBack_blue1.png" />
+        </div>
+        <div id="betDisplay">
+            Bet: ####
+        </div>
+        <div id="dealerHand">
+            <img src="../Assets/Cards/cardBack_blue1.png">
+            <img src="../Assets/Cards/cardClubsA.png" class="faceUp">
+        </div>
+        <div class="spacer"></div>
+        <div id="playerHand">
+            <img src="../Assets/Cards/cardBack_blue1.png">
+            <img src="../Assets/Cards/cardClubsA.png" class="faceUp">
+        </div>
+        <div class="row">
+            <div id="cashDisplay">
+                Cash: ####
+            </div>
+            <div class="chips">
+                <img class="chip" src="../Assets/Overall UI/chip1.png" />
+                <img class="chip" src="../Assets/Overall UI/chip5.png" />
+                <img class="chip" src="../Assets/Overall UI/chip10.png" />
+                <img class="chip" src="../Assets/Overall UI/chip20.png" />
+                <img class="chip" src="../Assets/Overall UI/chip50.png" />
+                <img class="chip" src="../Assets/Overall UI/chip100.png" />
+                <img class="chip" src="../Assets/Overall UI/chip500.png" />
+                <img class="chip" src="../Assets/Overall UI/chip1000.png" />
+                <img class="chip" src="../Assets/Overall UI/chip5000.png" />
+            </div>
+            <div class="stack" id="buttons">
+                <div id="hitButton">
+                    Hit
+                </div>
+                <div id="standButton">
+                    Stand
+                </div>
+                <!-- <div id="doubleButton">
+                    Double
+                </div>
+                <div id="splitButton">
+                    Split
+                </div>
+                <div id="surrenderButton">
+                    Surrender
+                </div> -->
+            </div>
+        </div>
     </div>
 </body>
 
