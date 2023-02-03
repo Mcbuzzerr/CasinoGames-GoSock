@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/cssReset.css">
+    <link rel="stylesheet" href="../css/bank.css">
+    <script src="../js/bankPage.js"></script>
+    <title>Bank</title>
+</head>
+
+<body>
+    <div class="title">
+        <h1>The Bank</h1>
+    </div>
+    <div class="flexWide">
+        <div class="flexTall">
+            <p id="cash">Cash: ####</p>
+            <input type="number" name="cash" id="cashIn" min="0" step="100">
+            <div class="button" id="deposit" onclick="handleDeposit()">
+                Deposit
+            </div>
+        </div>
+        <div class="flexTall">
+            <p id="bank">Bank Account: ####</p>
+            <input type="number" name="bank" id="cashOut" min="0" step="100">
+            <div class="button" id="withdraw" onclick="handleWithdraw()">
+                Withdraw
+            </div>
+        </div>
+    </div>
+    <div class="button" id="back" onclick="handleBack()">
+        Back
+    </div>
+</body>
+
+</html>
