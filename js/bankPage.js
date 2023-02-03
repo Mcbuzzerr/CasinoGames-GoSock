@@ -12,7 +12,14 @@ const handleLoad = () => {
     let cash = parseInt(localStorage.getItem("cash"))
     let bankAccount = parseInt(localStorage.getItem("bankAccount"))
     document.getElementById("cash").innerHTML = `Cash: $${cash}`
-    document.getElementById("bank").innerHTML = `Bank Account: $${bankAccount}`
+    let bankVal = document.getElementById("bankVal")
+    if (bankAccount < 0) {
+        bankVal.style.color = "red"
+        bankVal.innerHTML = `-$${Math.abs(bankAccount)}`
+    } else {
+        bankVal.style.color = "white"
+        document.getElementById("bankVal").innerHTML = `$${bankAccount}`
+    }
 }
 
 const handleWithdraw = () => {
@@ -21,10 +28,7 @@ const handleWithdraw = () => {
     let bankAccount = parseInt(localStorage.getItem("bankAccount"))
     bankAccount -= amount
     cash += amount
-    localStorage.setItem("cash", cash)
-    localStorage.setItem("bankAccount", bankAccount)
-    document.getElementById("cash").innerHTML = `Cash: $${cash}`
-    document.getElementById("bank").innerHTML = `Bank Account: $${bankAccount}`
+    updateVals(cash, bankAccount)
 }
 
 const handleDeposit = () => {
@@ -34,13 +38,40 @@ const handleDeposit = () => {
     if (amount <= cash) {
         bankAccount += amount
         cash -= amount
-        localStorage.setItem("cash", cash)
-        localStorage.setItem("bankAccount", bankAccount)
-        document.getElementById("cash").innerHTML = `Cash: $${cash}`
-        document.getElementById("bank").innerHTML = `Bank Account: $${bankAccount}`
+        updateVals(cash, bankAccount)
     } else {
         alert("Insufficent Funds")
     }
 }
 
+const updateVals = (cash, bankAccount) => {
+    localStorage.setItem("cash", cash)
+    localStorage.setItem("bankAccount", bankAccount)
+    document.getElementById("cash").innerHTML = `Cash: $${cash}`
+    let bankVal = document.getElementById("bankVal")
+    if (bankAccount < 0) {
+        bankVal.style.color = "red"
+        bankVal.innerHTML = `-$${Math.abs(bankAccount)}`
+    } else {
+        bankVal.style.color = "white"
+        document.getElementById("bankVal").innerHTML = `$${bankAccount}`
+    }
+}
+
+let inputList = []
+document.addEventListener("keyup", (event) => {
+    console.log(event.key)
+    inputList.push(event.key)
+    if (inputList.length > 10) {
+        inputList.shift()
+    }
+    if (inputList.join("") == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba") {
+        let cash = parseInt(localStorage.getItem("cash")) + 999999999
+        let bankAccount = parseInt(localStorage.getItem("bankAccount")) + 999999999
+        updateVals(cash, bankAccount)
+    }
+    // if (inputList == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba") {
+    //     window.location.href = "../html/cheat.html"
+    // }
+})
 window.onload = handleLoad
