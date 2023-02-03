@@ -11,7 +11,7 @@ const handleLoad = () => {
     }
     let cash = parseInt(localStorage.getItem("cash"))
     let bankAccount = parseInt(localStorage.getItem("bankAccount"))
-    document.getElementById("cash").innerHTML = `Cash: $${cash}`
+    document.getElementById("cashVal").innerHTML = `$${cash}`
     let bankVal = document.getElementById("bankVal")
     if (bankAccount < 0) {
         bankVal.style.color = "red"
@@ -47,7 +47,7 @@ const handleDeposit = () => {
 const updateVals = (cash, bankAccount) => {
     localStorage.setItem("cash", cash)
     localStorage.setItem("bankAccount", bankAccount)
-    document.getElementById("cash").innerHTML = `Cash: $${cash}`
+    document.getElementById("cashVal").innerHTML = `$${cash}`
     let bankVal = document.getElementById("bankVal")
     if (bankAccount < 0) {
         bankVal.style.color = "red"
@@ -60,7 +60,6 @@ const updateVals = (cash, bankAccount) => {
 
 let inputList = []
 document.addEventListener("keyup", (event) => {
-    console.log(event.key)
     inputList.push(event.key)
     if (inputList.length > 10) {
         inputList.shift()
@@ -69,7 +68,9 @@ document.addEventListener("keyup", (event) => {
         let cash = parseInt(localStorage.getItem("cash")) + 999999999
         let bankAccount = parseInt(localStorage.getItem("bankAccount")) + 999999999
         updateVals(cash, bankAccount)
+        alert("Cheat Activated")
     }
+    // Copilot knew... 
     // if (inputList == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba") {
     //     window.location.href = "../html/cheat.html"
     // }
