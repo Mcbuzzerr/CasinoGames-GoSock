@@ -48,7 +48,7 @@ const dealerFaceDownCard = document.getElementById("dealerFaceDownCard")
 const faceUpCards = document.getElementsByClassName("faceUp")
 const standButtonHandler = () => {
     playerFaceDownCard.style.setProperty("--pathToFaceUpCard", "url(../Assets/Cards/cardClubs2.png)")
-    playerFaceDownCard.style.animation = "revealCard 1s forwards";
+    playerFaceDownCard.style.animation = "revealCard 1.5s forwards";
     dealerFaceDownCard.style.setProperty("--pathToFaceUpCard", "url(../Assets/Cards/cardClubs5.png)")
     dealerFaceDownCard.style.animation = "revealCard 1s forwards 0.75s";
     for (let index = 0; index < faceUpCards.length; index++) {

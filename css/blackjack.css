@@ -167,6 +167,6 @@ body {
     }
     to {
         content: var(--pathToFaceUpCard);
-        transform: translate(-150px) rotateY(0deg);
+        transform: translate(-130px) rotateY(0deg);
     }
 }
