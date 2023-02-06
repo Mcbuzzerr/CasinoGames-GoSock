@@ -171,3 +171,28 @@ body {
         transform: translate(-130px) rotateY(0deg);
     }
 }
+
+.jackBlack {
+    background-Image: url("../Assets/BlackJack/jackBlack.png");
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+@keyframes rocker {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

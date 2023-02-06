@@ -62,3 +62,20 @@ const revealDealerHand = (dealerFaceDownCardName) => {
     }
     isStood = true;
 }
+
+let inputList = []
+document.addEventListener("keyup", (event) => {
+    let cheatString = "jackblack"
+    inputList.push(event.key)
+    if (inputList.length > cheatString.length) {
+        inputList.shift()
+    }
+    if (inputList.join("") == cheatString) {
+        document.getElementById("blackJackTitle").innerHTML = "Jack Black"
+        let img = document.createElement("div")
+        img.classList.add("jackBlack")
+        img.style.animation = "rocker 0.5s forwards infinite"
+        document.getElementById("blackJackTitle").appendChild(img)
+    }
+    console.log(inputList.join(""))
+})
