@@ -46,7 +46,7 @@ const Bank = class {
     }
 
     betDraw() {
-        player.returnBet();
+        this.player.returnBet();
         this.betPool = 0;
     }
 
