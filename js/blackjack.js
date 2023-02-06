@@ -30,9 +30,8 @@ function addBet(bet) {
     if (this.bank.player.cash < bet) {
         return;
     }
-    tokenDisplayHandler(1)
+    tokenDisplayHandler(bet)
     this.bank.addBet(bet);
-    betDisplay.innerHTML = "Bet: " + this.bank.betPool;
     cashDisplay.innerHTML = "Cash: " + this.bank.player.cash;
 }
 

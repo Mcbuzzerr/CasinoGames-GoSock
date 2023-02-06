@@ -1,30 +1,30 @@
 const playerHand = document.getElementById("playerHand")
-let playerHandCardCount = 1; // 1 because the first card is already there, Possibly change this to 0 once code works
+let playerHandCardCount = 0; // 1 because the first card is already there, Possibly change this to 0 once code works
 const dealerHand = document.getElementById("dealerHand")
-let dealerHandCardCount = 1; // 1 because the first card is already there, Possibly change this to 0 once code works
+let dealerHandCardCount = 0; // 1 because the first card is already there, Possibly change this to 0 once code works
 
 let isStood = false;
 
-const hitButtonHandler = () => {
+const hitPlayerHandler = (cardName) => {
     if (playerHandCardCount < 11 && !isStood) {
         let newCard = document.createElement("img")
-        newCard.src = "../Assets/Cards/cardClubs2.png"
+        newCard.src = `../Assets/Cards/${cardName}.png`
         newCard.classList.add("faceUp")
         newCard.style.transform = `rotate(${Math.max(20 - (playerHandCardCount * 3), 0)}deg)`
         newCard.style.right = `-${20 * (playerHandCardCount * 1.3)}px`
         playerHand.appendChild(newCard)
         playerHandCardCount++
-
-        let newDealerCard = document.createElement("img")
-        newDealerCard.src = "../Assets/Cards/cardClubs6.png"
-        newDealerCard.classList.add("faceUp")
-        newDealerCard.style.transform = `rotate(${Math.max(20 - (dealerHandCardCount * 3), 0)}deg)`
-        newDealerCard.style.right = `-${20 * (dealerHandCardCount * 1.3)}px`
-        dealerHand.appendChild(newDealerCard)
-        dealerHandCardCount++
-    } else {
-        // New game?
     }
+}
+
+const hitDealerHandler = (cardName) => {
+    let newDealerCard = document.createElement("img")
+    newDealerCard.src = `../Assets/Cards/${cardName}.png`
+    newDealerCard.classList.add("faceUp")
+    newDealerCard.style.transform = `rotate(${Math.max(20 - (dealerHandCardCount * 3), 0)}deg)`
+    newDealerCard.style.right = `-${20 * (dealerHandCardCount * 1.3)}px`
+    dealerHand.appendChild(newDealerCard)
+    dealerHandCardCount++
 }
 
 const betDisplay = document.getElementById("betDisplay")
@@ -46,10 +46,10 @@ const handleBack = () => {
 const playerFaceDownCard = document.getElementById("playerFaceDownCard")
 const dealerFaceDownCard = document.getElementById("dealerFaceDownCard")
 const faceUpCards = document.getElementsByClassName("faceUp")
-const standButtonHandler = () => {
-    playerFaceDownCard.style.setProperty("--pathToFaceUpCard", "url(../Assets/Cards/cardClubs2.png)")
+const standHandler = (playerFaceDownCardName, dealerFaceDownCardName) => {
+    playerFaceDownCard.style.setProperty("--pathToFaceUpCard", `url(../Assets/Cards/${playerFaceDownCardName}.png)`)
     playerFaceDownCard.style.animation = "revealCard 1.5s forwards";
-    dealerFaceDownCard.style.setProperty("--pathToFaceUpCard", "url(../Assets/Cards/cardClubs5.png)")
+    dealerFaceDownCard.style.setProperty("--pathToFaceUpCard", `url(../Assets/Cards/${dealerFaceDownCardName}.png)`)
     dealerFaceDownCard.style.animation = "revealCard 1s forwards 0.75s";
     for (let index = 0; index < faceUpCards.length; index++) {
         faceUpCards[index].style.transition = `${0.3 + ((faceUpCards.length - index)/10)}s`;
