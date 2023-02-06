@@ -1,9 +1,11 @@
 deck = new BLJDeck();
 bank = new Bank(1000);
+var playing = false;
 
 
 function startGame() {
     //stop player from betting more
+    playing = true;
 
     //shuffle deck
     deck.createDeck();
@@ -11,23 +13,76 @@ function startGame() {
     //deal cards
     this.playerHand = [];
     this.dealerHand = [];
-    this.playerHand.push(deck.drawCard());
-    this.dealerHand.push(deck.drawCard());
-    this.playerHand.push(deck.drawCard());
-    this.dealerHand.push(deck.drawCard());
+    //Assets\Cards\cardDiamonds2.png
+    this.playerHand.push(deck.deal());
+    hitPlayerHandler(getLastCardFormatted(this.playerHand));
+    this.dealerHand.push(deck.deal());
+    placeFaceDownCard();
+    this.playerHand.push(deck.deal());
+    hitPlayerHandler(getLastCardFormatted(this.playerHand));
+    this.dealerHand.push(deck.deal());
+    hitDealerHandler(getLastCardFormatted(this.dealerHand));
 
     //play blackjack
-    while(this.playerHandValue() <= 21) {
-        //show player hand
-        //show dealer hand
-        //ask player to hit or stand
+    // while(this.playerHandValue() <= 21 && playing) {
+    //     //ask player to hit or stand
+    // }
+    // this.endGame();
+}
+
+function getLastCardFormatted(hand) {
+    cardValue = "Joker";
+    switch (hand[hand.length - 1].value) {
+        case "Ace":
+            cardValue = "A";
+            break;
+        case "Jack":
+            cardValue = "J";
+            break;
+        case "Queen":
+            cardValue = "Q";
+            break;
+        case "King":
+            cardValue = "K";
+            break;
+        default:
+            cardValue = hand[hand.length - 1].getNumericValue();
     }
-    this.endGame();
+    if (cardValue != "Joker") {
+    return "card" + hand[hand.length - 1].suit + cardValue;
+    } else {
+        return "cardJoker.png";
+    }
+}
+
+function getFirstCardFormatted(hand) {
+    cardValue = "Joker";
+    switch (hand[0].value) { //dONT FORGET TO UPDATE ME
+        case 1:
+            cardValue = "Ace";
+            break;
+        case 11:
+            cardValue = "Jack";
+            break;
+        case 12:
+            cardValue = "Queen";
+            break;
+        case 13:
+            cardValue = "King";
+            break;
+        default:
+            cardValue = hand[0].getNumericValue();
+    }
+    if (cardValue != "Joker") {
+    return "card" + hand[0].suit + cardValue;
+    } else {
+        return "cardJoker.png";
+    }
 }
 
 function addBet(bet) {
-    //check if player has enough cash
-    if (this.bank.player.cash < bet) {
+    //check if player has enough cash and game is not in progress
+    if (this.bank.player.cash < bet || playing) {
         return;
     }
     tokenDisplayHandler(bet)
@@ -36,13 +91,18 @@ function addBet(bet) {
 }
 
 function hit() {
-    this.playerHand.push(deck.drawCard());
+    if (playing) {
+    this.playerHand.push(deck.deal());
+    hitPlayerHandler(getLastCardFormatted(this.playerHand));
+    } else startGame();
 }
 
 function stand() {
     while (this.dealerHandValue() < 17) {
-        this.dealerHand.push(deck.drawCard());
+        this.dealerHand.push(deck.deal());
+        hitDealerHandler(getLastCardFormatted(this.dealerHand));
     }
+    revealDealerHand(getFirstCardFormatted(this.dealerHand));
     endGame();
 }
 
@@ -82,5 +142,6 @@ function endGame() {
         //tie, pays bet back
         this.bank.betDraw();
     }
+    playing = false;
 }
 
