@@ -27,6 +27,14 @@ const hitDealerHandler = (cardName) => {
     dealerHandCardCount++
 }
 
+const placeFaceDownCard = () => {
+    let newCard = document.createElement("img")
+    newCard.src = `../Assets/Cards/cardBack_blue1.png`
+    newCard.classList.add("faceDown")
+    dealerHand.appendChild(newCard)
+    dealerHandCardCount++
+}
+
 const betDisplay = document.getElementById("betDisplay")
 let tokenCount = 0;
 const tokenDisplayHandler = (bet) => {
@@ -46,9 +54,7 @@ const handleBack = () => {
 const playerFaceDownCard = document.getElementById("playerFaceDownCard")
 const dealerFaceDownCard = document.getElementById("dealerFaceDownCard")
 const faceUpCards = document.getElementsByClassName("faceUp")
-const standHandler = (playerFaceDownCardName, dealerFaceDownCardName) => {
-    playerFaceDownCard.style.setProperty("--pathToFaceUpCard", `url(../Assets/Cards/${playerFaceDownCardName}.png)`)
-    playerFaceDownCard.style.animation = "revealCard 1.5s forwards";
+const revealDealerHand = (playerFaceDownCardName, dealerFaceDownCardName) => {
     dealerFaceDownCard.style.setProperty("--pathToFaceUpCard", `url(../Assets/Cards/${dealerFaceDownCardName}.png)`)
     dealerFaceDownCard.style.animation = "revealCard 1s forwards 0.75s";
     for (let index = 0; index < faceUpCards.length; index++) {
