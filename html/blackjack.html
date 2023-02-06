@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../css/cssReset.css">
     <link rel="stylesheet" href="../css/blackjack.css">
     <script src="../js/blackjackVisuals.js" defer></script>
+    <script src="../js/deck.js"></script>
+    <script src="../js/bank.js"></script>
+    <script src="../js/blackjack.js"></script>
     <title>Document</title>
 </head>
 
@@ -49,18 +52,15 @@
                 Cash: ####
             </div>
             <div class="chips">
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(1)" src="../Assets/Overall UI/chip1.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(5)" src="../Assets/Overall UI/chip5.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(10)" src="../Assets/Overall UI/chip10.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(20)" src="../Assets/Overall UI/chip20.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(50)" src="../Assets/Overall UI/chip50.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(100)" src="../Assets/Overall UI/chip100.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(500)" src="../Assets/Overall UI/chip500.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(1000)"
-                    src="../Assets/Overall UI/chip1000.png" />
-                <img class="chip hoverChip" onclick="tokenDisplayHandler(5000)"
-                    src="../Assets/Overall UI/chip5000.png" />
-            </div>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip1.png" onclick="addBet(1)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip5.png" onclick="addBet(5)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip10.png" onclick="addBet(10)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip20.png" onclick="addBet(20)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip50.png" onclick="addBet(50)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip100.png" onclick="addBet(100)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip500.png" onclick="addBet(500)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip1000.png" onclick="addBet(1000)"/>
+                <img class="chip hoverChip" src="../Assets/Overall UI/chip5000.png" onclick="addBet(5000)"/>           </div>
             <div class="stack" id="buttons">
                 <div id="hitButton" onclick="hitButtonHandler()" class="button">
                     Hit

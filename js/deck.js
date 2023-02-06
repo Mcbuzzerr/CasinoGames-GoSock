@@ -85,6 +85,8 @@ class Deck {
                 this.cards.push(new Card(suit, value));
             }
         }
+
+        this.shuffleDeck();
     }
 
     shuffleDeck() {
@@ -118,6 +120,8 @@ class BLJDeck extends Deck {
                 this.cards.push(new BLJCard(suit, value));
             }
         }
+
+        this.shuffleDeck();
     }
 }
 
