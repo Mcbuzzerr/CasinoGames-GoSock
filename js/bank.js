@@ -7,11 +7,11 @@ class Player {
     }
 
     addBalance(amount) {
-        this.balance += amount;
+        this.cash += amount;
     }
 
     subtractBalance(amount) {
-        this.balance -= amount;
+        this.cash -= amount;
     }
 
     raiseBet = (amount) => {
@@ -52,6 +52,7 @@ const Bank = class {
 
     betWinMultiplier( multiplier) {
         this.player.addBalance(this.player.bet * multiplier);
+        this.player.foldBet();
         this.betPool = 0;
     }
 }
