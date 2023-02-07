@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/cssReset.css">
-        <link rel="stylesheet" href="/css/font.css">
-        <link rel="stylesheet" href="/css/index.css">
-        <link rel="stylesheet" href="/css/home.css">
-        <title>Casino Home</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cssReset.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <script>
+        const menuGo = (where) => {
+            location.href = where;
+        }
+    </script>
+    <title>Casino Home</title>
+</head>
 
-    <body>
-        <div id="container">
-            <table id="game_options">
-                <tr>
-                    <td></td>
-                    <td>
-                        <img id="casino_icon" src="/Assets/Overall UI/Casino Icon.png" alt="casino_icon">
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <p>Choose a Game to Play!</p>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="/Assets/Overall UI/Poker Icon.png" alt="poker_icon">
-                        <p class="button">Play Poker</p>
-                    </td>
-                    <td>
-                        <img class="icon" src="/Assets/Overall UI/Blackjack Icon.png" alt="blackjack_icon">
-                        <p class="button">Play Blackjack</p>
-                    </td>
-                    <td>
-                        <img class="icon" src="/Assets/Overall UI/Roulette Icon.png" alt="roulette_icon">
-                        <p class="button">Play Roulette</p>
-                    </td>
-                </tr>
-            </table>
-            <p class="button" id="bank_button">Go to Bank</p>
-        </div>
-    </body>
+<body>
+    <div id="container">
+        <table id="game_options">
+            <tr>
+                <td></td>
+                <td>
+                    <img id="casino_icon" src="/Assets/Overall UI/Casino Icon.png" alt="casino_icon">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>Choose a Game to Play!</p>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="icon" src="/Assets/Overall UI/Poker Icon.png" alt="poker_icon">
+                    <p class="button" onclick="menuGo('poker.html')">Play Poker</p>
+                </td>
+                <td>
+                    <img class="icon" src="/Assets/Overall UI/Blackjack Icon.png" alt="blackjack_icon">
+                    <p class="button" onclick="menuGo('blackjack.html')">Play Blackjack</p>
+                </td>
+                <td>
+                    <img class="icon" src="/Assets/Overall UI/Roulette Icon.png" alt="roulette_icon">
+                    <p class="button" onclick="menuGo('roulette.html')">Play Roulette</p>
+                </td>
+            </tr>
+        </table>
+        <p class="button" id="bank_button">Go to Bank</p>
+    </div>
+</body>
 
 </html>

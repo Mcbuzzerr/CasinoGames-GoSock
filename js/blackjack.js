@@ -175,5 +175,9 @@ function endGame() {
     tokenCount = 0;
     cashDisplay.innerHTML = "Cash: " + this.bank.player.cash;
     localStorage.setItem("cash", this.bank.player.cash);
+    if (this.bank.player.cash == 0) {
+        alert("You have run out of cash! Please visit the bank to withdraw more.")
+        location.href = "bank.html";
+    }
 }
 
