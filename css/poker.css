@@ -1,9 +1,22 @@
 
 h1{
+    margin-top: 3%;
     text-align: center;
+    color: white;
+    font-size: xx-large;
 }
 
-.card {
+h2{
+    margin-top: -4%;
+    text-align: center;
+    color: white;
+    font-size: xxx-large;
+    
+}
+
+
+
+.static_card {
     background-image: url("/Assets/Poker/PokerTable.png");
 }
 
@@ -12,13 +25,23 @@ body {
 }
 
 .board{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    /* background-image: url("/Assets/Poker/PokerTableRow.png"); */
+    background-size: 100% 100%;
 
-    width: 1500px;
-    height: auto;
-    padding: auto;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+
+    width: fit-content;
+    height: 200px;
+    margin: auto;
+
+    border-collapse: separate;
+    border-spacing: 10px 0;
+
+    /* padding: auto;
+    width: 1100px;
+    height: auto; */
 }
 
 .poker_icon{
@@ -28,8 +51,74 @@ body {
     margin-right: auto;
 }
 
-/* .board_div{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-} */
+.poker_slot {
+    margin-left: 72.5%;
+    background-image: url("../Assets/Poker/PokerTableSlot.png");
+    height: 250px;
+    width: 135px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.card_inside_poker_slot {
+    margin: auto;
+    width: 100px;
+}
+
+.card{
+    visibility: hidden;
+}
+
+td{
+    background-image: url("/Assets/Poker/PokerTableSlot.png");
+    background-size: 100% 100%;
+    padding: 40px 25px;
+}
+
+.bottom_part {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chip{
+    height: 100px;
+    width: auto;
+    /* margin-top: 3%; */
+    /* margin-left: 2%; */
+}
+
+.buttons {
+    margin-left: 30px;
+    margin-right: 30px;
+    background-image: url("../Assets/Overall UI/ButtonUp.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* width: calc(100% - var(--padding) * 2);
+    height: calc(50px - var(--padding) * 2); */
+    width: 100px;
+    height: auto;
+    color: black;
+    font-family: "ChunkFive";
+    font-size: 1.5rem;
+    padding: 50px;
+    user-select: none;
+    text-align: center;
+}
+
+
+.button{
+    margin-bottom: 1%;
+    margin-left: 1%;
+}
+
+.empty {
+    background-image: none;
+}
