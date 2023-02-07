@@ -85,3 +85,7 @@ document.addEventListener("keyup", (event) => {
     }
     console.log(inputList.join(""))
 })
+
+const huell = () => {
+    alert("HOW TO PLAY BLACKJACK\n\nThe goal of Blackjack is to beat the dealer's hand without going over 21.\n\nFace cards are worth 10. Aces are worth 1 or 11, whichever makes a better hand.\n\nEach player starts with two cards, one of the dealer's cards is hidden until the end.\n\nTo 'Hit' is to ask for another card. To 'Stand' is to hold your total and end your turn.\n\nIf you go over 21 you bust, and the dealer wins regardless of the dealer's hand.\n\nIf you are dealt 21 from the start (Ace & 10), you got a blackjack.\n\nDealer will hit until his/her cards total 17 or higher.")
+}
