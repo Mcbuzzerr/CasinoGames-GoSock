@@ -10,7 +10,11 @@ const hitPlayerHandler = (cardName) => {
         let newCard = document.createElement("img")
         newCard.src = `../Assets/Cards/${cardName}.png`
         newCard.classList.add("faceUp")
-        newCard.style.transform = `rotate(${Math.max(20 - (playerHandCardCount * 3), 0)}deg)`
+        if (playerHandCardCount == 0) {
+            newCard.style.transform = `rotate(0deg)`
+        } else {
+            newCard.style.transform = `rotate(${Math.max(20 - (playerHandCardCount * 3), 0)}deg)`
+        }
         newCard.style.right = `-${20 * (playerHandCardCount * 1.3)}px`
         playerHand.appendChild(newCard)
         playerHandCardCount++
@@ -24,6 +28,16 @@ const hitDealerHandler = (cardName) => {
     newDealerCard.style.transform = `rotate(${Math.max(20 - (dealerHandCardCount * 3), 0)}deg)`
     newDealerCard.style.right = `-${20 * (dealerHandCardCount * 1.3)}px`
     dealerHand.appendChild(newDealerCard)
+    dealerHandCardCount++
+}
+
+const placeFaceDownCard = () => {
+    let newCard = document.createElement("img")
+    newCard.src = `../Assets/Cards/cardBack_blue1.png`
+    newCard.classList.add("faceDown")
+    newCard.id = "dealerFaceDownCard"
+    console.log("AAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+    dealerHand.appendChild(newCard)
     dealerHandCardCount++
 }
 
@@ -43,12 +57,10 @@ const handleBack = () => {
     window.location.href = "../html/home.html"
 }
 
-const playerFaceDownCard = document.getElementById("playerFaceDownCard")
-const dealerFaceDownCard = document.getElementById("dealerFaceDownCard")
-const faceUpCards = document.getElementsByClassName("faceUp")
-const standHandler = (playerFaceDownCardName, dealerFaceDownCardName) => {
-    playerFaceDownCard.style.setProperty("--pathToFaceUpCard", `url(../Assets/Cards/${playerFaceDownCardName}.png)`)
-    playerFaceDownCard.style.animation = "revealCard 1.5s forwards";
+const revealDealerHand = (dealerFaceDownCardName) => {
+    const faceUpCards = document.getElementsByClassName("faceUp")
+    const dealerFaceDownCard = document.getElementById("dealerFaceDownCard")
+    console.log(dealerFaceDownCard)
     dealerFaceDownCard.style.setProperty("--pathToFaceUpCard", `url(../Assets/Cards/${dealerFaceDownCardName}.png)`)
     dealerFaceDownCard.style.animation = "revealCard 1s forwards 0.75s";
     for (let index = 0; index < faceUpCards.length; index++) {
@@ -57,3 +69,20 @@ const standHandler = (playerFaceDownCardName, dealerFaceDownCardName) => {
     }
     isStood = true;
 }
+
+let inputList = []
+document.addEventListener("keyup", (event) => {
+    let cheatString = "jackblack"
+    inputList.push(event.key)
+    if (inputList.length > cheatString.length) {
+        inputList.shift()
+    }
+    if (inputList.join("") == cheatString) {
+        document.getElementById("blackJackTitle").innerHTML = "Jack Black"
+        let img = document.createElement("div")
+        img.classList.add("jackBlack")
+        img.style.animation = "rocker 0.5s forwards infinite"
+        document.getElementById("blackJackTitle").appendChild(img)
+    }
+    console.log(inputList.join(""))
+})
