@@ -36,7 +36,6 @@ const placeFaceDownCard = () => {
     newCard.src = `../Assets/Cards/cardBack_blue1.png`
     newCard.classList.add("faceDown")
     newCard.id = "dealerFaceDownCard"
-    console.log("AAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
     dealerHand.appendChild(newCard)
     dealerHandCardCount++
 }

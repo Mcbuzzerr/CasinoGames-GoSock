@@ -1,5 +1,14 @@
 deck = new BLJDeck();
-bank = new Bank(1000);
+let startingCash;
+if (localStorage.getItem("cash") != null) {
+    startingCash = parseInt(localStorage.getItem("cash"));
+} else {
+    startingCash = 1000;
+    localStorage.setItem("cash", startingCash);
+}
+document.getElementById("cashDisplay").innerText = "Cash: " + startingCash;
+
+bank = new Bank(startingCash);
 var playing = false;
 
 
@@ -22,7 +31,7 @@ function startGame() {
     hitPlayerHandler(getLastCardFormatted(this.playerHand));
     this.dealerHand.push(deck.deal());
     hitDealerHandler(getLastCardFormatted(this.dealerHand));
-
+    document.getElementById("hitButton").innerText = "Hit";
     //play blackjack
     // while(this.playerHandValue() <= 21 && playing) {
     //     //ask player to hit or stand
@@ -143,5 +152,6 @@ function endGame() {
         this.bank.betDraw();
     }
     playing = false;
+    document.getElementById("hitButton").innerText = "Play Again";
 }
 
