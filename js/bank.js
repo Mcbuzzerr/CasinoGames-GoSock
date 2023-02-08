@@ -55,4 +55,9 @@ const Bank = class {
         this.player.foldBet();
         this.betPool = 0;
     }
+
+    betLose() {
+        this.player.foldBet();
+        this.betPool = 0;
+    }
 }

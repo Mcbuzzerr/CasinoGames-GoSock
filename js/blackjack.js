@@ -125,7 +125,7 @@ function playerHandValue() {
         total += card.getNumericValue();
     }
     if (total > 21) {
-        for (let card of this.playerHand) {
+        for (let card of this.playerHand) { 
             if (card.value == "Ace") {
                 total -= 10;
             }
@@ -157,6 +157,7 @@ function endGame() {
         this.bank.betWinMultiplier(4);
     } else if (playerTotal > 21) {
         //player bust
+        this.bank.betLose();
     } else if (dealerTotal > 21) {
         //dealer bust
         this.bank.betWinMultiplier(2);
@@ -165,6 +166,7 @@ function endGame() {
         this.bank.betWinMultiplier(2);
     } else if (dealerTotal > playerTotal) {
         //dealer win
+        this.bank.betLose();
     } else {
         //tie, pays bet back
         this.bank.betDraw();
