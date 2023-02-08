@@ -40,7 +40,7 @@ const handleDeposit = () => {
         cash -= amount
         updateVals(cash, bankAccount)
     } else {
-        alert("Insufficent Funds")
+        popup("Insufficent Funds")
     }
 }
 
@@ -68,7 +68,7 @@ document.addEventListener("keyup", (event) => {
         let cash = parseInt(localStorage.getItem("cash")) + 999999999
         let bankAccount = parseInt(localStorage.getItem("bankAccount")) + 999999999
         updateVals(cash, bankAccount)
-        alert("Cheat Activated")
+        popup("Cheat Activated", undefined, "Woohoo!")
     }
     // Copilot knew... 
     // if (inputList == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba") {
