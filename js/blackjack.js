@@ -1,9 +1,19 @@
 deck = new BLJDeck();
-bank = new Bank(1000);
+let startingCash;
+if (localStorage.getItem("cash") != null) {
+    startingCash = parseInt(localStorage.getItem("cash"));
+} else {
+    startingCash = 1000;
+    localStorage.setItem("cash", startingCash);
+}
+document.getElementById("cashDisplay").innerText = "Cash: " + startingCash;
+
+bank = new Bank(startingCash);
 var playing = false;
 
 
 function startGame() {
+    
     //stop player from betting more
     playing = true;
 
@@ -13,7 +23,7 @@ function startGame() {
     //deal cards
     this.playerHand = [];
     this.dealerHand = [];
-    //Assets\Cards\cardDiamonds2.png
+
     this.playerHand.push(deck.deal());
     hitPlayerHandler(getLastCardFormatted(this.playerHand));
     this.dealerHand.push(deck.deal());
@@ -22,12 +32,7 @@ function startGame() {
     hitPlayerHandler(getLastCardFormatted(this.playerHand));
     this.dealerHand.push(deck.deal());
     hitDealerHandler(getLastCardFormatted(this.dealerHand));
-
-    //play blackjack
-    // while(this.playerHandValue() <= 21 && playing) {
-    //     //ask player to hit or stand
-    // }
-    // this.endGame();
+    document.getElementById("hitButton").innerText = "Hit";
 }
 
 function getLastCardFormatted(hand) {
@@ -58,17 +63,17 @@ function getLastCardFormatted(hand) {
 function getFirstCardFormatted(hand) {
     cardValue = "Joker";
     switch (hand[0].value) { //dONT FORGET TO UPDATE ME
-        case 1:
-            cardValue = "Ace";
+        case "Ace":
+            cardValue = "A";
             break;
-        case 11:
-            cardValue = "Jack";
+        case "Jack":
+            cardValue = "J";
             break;
-        case 12:
-            cardValue = "Queen";
+        case "Queen":
+            cardValue = "Q";
             break;
-        case 13:
-            cardValue = "King";
+        case "King":
+            cardValue = "K";
             break;
         default:
             cardValue = hand[0].getNumericValue();
@@ -92,9 +97,17 @@ function addBet(bet) {
 
 function hit() {
     if (playing) {
-    this.playerHand.push(deck.deal());
-    hitPlayerHandler(getLastCardFormatted(this.playerHand));
-    } else startGame();
+        this.playerHand.push(deck.deal());
+        hitPlayerHandler(getLastCardFormatted(this.playerHand))
+        if(this.playerHandValue() > 21) stand();
+    } else {
+        dealerHand.innerHTML = "";
+        dealerHandCardCount = 0;
+        playerHand.innerHTML = "";
+        playerHandCardCount = 0;
+        isStood = false;
+        startGame();
+    }
 }
 
 function stand() {
@@ -111,6 +124,13 @@ function playerHandValue() {
     for (let card of this.playerHand) {
         total += card.getNumericValue();
     }
+    if (total > 21) {
+        for (let card of this.playerHand) { 
+            if (card.value == "Ace") {
+                total -= 10;
+            }
+        }
+    }
     return total;
 }
 
@@ -119,17 +139,25 @@ function dealerHandValue() {
     for (let card of this.dealerHand) {
         total += card.getNumericValue();
     }
+    if (total > 21) {
+        for (let card of this.dealerHand) {
+            if (card.value == "Ace") {
+                total -= 10;
+            }
+        }
+    }
     return total;
 }
 
 function endGame() {
     let playerTotal = this.playerHandValue();
     let dealerTotal = this.dealerHandValue();
-    if (playerTotal == 21) {
+    if (playerTotal == 21 && this.playerHand.length == 2) {
         //player blackjack
         this.bank.betWinMultiplier(4);
     } else if (playerTotal > 21) {
         //player bust
+        this.bank.betLose();
     } else if (dealerTotal > 21) {
         //dealer bust
         this.bank.betWinMultiplier(2);
@@ -138,10 +166,19 @@ function endGame() {
         this.bank.betWinMultiplier(2);
     } else if (dealerTotal > playerTotal) {
         //dealer win
+        this.bank.betLose();
     } else {
         //tie, pays bet back
         this.bank.betDraw();
     }
     playing = false;
+    document.getElementById("hitButton").innerText = "Play Again";
+    betDisplay.innerHTML = "Bet: ";
+    tokenCount = 0;
+    cashDisplay.innerHTML = "Cash: " + this.bank.player.cash;
+    localStorage.setItem("cash", this.bank.player.cash);
+    if (this.bank.player.cash == 0) {
+        popup("You have run out of cash! Please visit the bank to withdraw more.", () => {location.href = "bank.html";})
+    }
 }
 

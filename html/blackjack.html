@@ -11,7 +11,8 @@
     <script src="../js/blackjackVisuals.js" defer></script>
     <script src="../js/deck.js"></script>
     <script src="../js/bank.js"></script>
-    <script src="../js/blackjack.js"></script>
+    <script src="../js/blackjack.js" defer></script>
+    <script src="../js/popup.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -26,7 +27,8 @@
             <h1 id="blackJackTitle">Blackjack</h1>
         </div>
         <div class="headerBarRight">
-            <div id="rulesButton" class="button">Rules</div>
+            <div id="huellsButton" class="button" onclick="huell()">
+                Rules</div>
         </div>
     </div>
     <div class="mainFlex">
@@ -60,7 +62,7 @@
             </div>
             <div class="stack" id="buttons">
                 <div id="hitButton" onclick="hit()" class="button">
-                    Hit
+                    Start Game
                 </div>
                 <div id="standButton" onclick="stand()" class="button">
                     Stand

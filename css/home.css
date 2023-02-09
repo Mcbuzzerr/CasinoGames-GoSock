@@ -67,6 +67,7 @@ p {
 
 .button:hover {
     filter: brightness(80%);
+    cursor: pointer;
 }
 
 #bank_button {
