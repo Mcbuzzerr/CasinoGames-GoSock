@@ -3,6 +3,17 @@ let cardDeck = new BLJDeck();
 cardDeck.createDeck();
 cardDeck.shuffleDeck();
 
+// Creates a new Bank class
+let startingCash;
+if (localStorage.getItem("cash") != null) {
+    startingCash = parseInt(localStorage.getItem("cash"));
+} else {
+    startingCash = 1000;
+    localStorage.setItem("cash", startingCash);
+}
+document.getElementById("cashDisplay").innerText = "Cash: " + startingCash;
+let bank = new Bank();
+
 // HTML element that displays the num of cards left in the deck
 let deck_count = document.getElementById("deck_count");
 
