@@ -10,12 +10,14 @@ document.getElementById("cashDisplay").innerText = "Cash: " + startingCash;
 
 bank = new Bank(startingCash);
 var playing = false;
+var boolResetDelay = false;
 
 
 function startGame() {
     
     //stop player from betting more
     playing = true;
+    boolResetDelay = false;
 
     //shuffle deck
     deck.createDeck();
@@ -96,6 +98,7 @@ function addBet(bet) {
 }
 
 function hit() {
+    if (boolResetDelay) return;
     if (playing) {
         this.playerHand.push(deck.deal());
         hitPlayerHandler(getLastCardFormatted(this.playerHand))
@@ -150,28 +153,37 @@ function dealerHandValue() {
 }
 
 function endGame() {
+    let betAmount = this.bank.player.bet;
     let playerTotal = this.playerHandValue();
     let dealerTotal = this.dealerHandValue();
     if (playerTotal == 21 && this.playerHand.length == 2) {
         //player blackjack
         this.bank.betWinMultiplier(4);
+        setTimeout(() => {popup(`You got a blackjack! You win 4x your $${betAmount} bet!`)}, 1500);
     } else if (playerTotal > 21) {
         //player bust
         this.bank.betLose();
+        setTimeout(() => {popup(`You busted! You lose your $${betAmount} bet!`)}, 1500);
     } else if (dealerTotal > 21) {
         //dealer bust
         this.bank.betWinMultiplier(2);
+        setTimeout(() => {popup(`The dealer busted! You win 2x your $${betAmount} bet!`)}, 1500);
     } else if (playerTotal > dealerTotal) {
         //player win
         this.bank.betWinMultiplier(2);
+        setTimeout(() => {popup(`You win 2x your $${betAmount} bet!`)}, 1500);
     } else if (dealerTotal > playerTotal) {
         //dealer win
         this.bank.betLose();
+        setTimeout(() => {popup(`You lose your $${betAmount} bet!`)}, 1500);
     } else {
         //tie, pays bet back
         this.bank.betDraw();
+        setTimeout(() => {popup(`You tied! You get your $${betAmount} bet back!`)}, 1500);
     }
     playing = false;
+    boolResetDelay = true;
+    setTimeout(() => {boolResetDelay = false;}, 2000);
     document.getElementById("hitButton").innerText = "Play Again";
     betDisplay.innerHTML = "Bet: ";
     tokenCount = 0;
