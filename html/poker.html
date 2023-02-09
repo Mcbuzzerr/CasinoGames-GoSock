@@ -1,91 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/font.css">
+        <link rel="stylesheet" href="../css/cssReset.css">
+        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="../css/poker.css">
+        <script src="../js/deck.js" defer></script>
+        <script src="../js/bank.js" defer></script>
+        <script src="../js/poker.js" defer></script>
+        <title>Poker</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/font.css">
-    <link rel="stylesheet" href="/css/cssReset.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/poker.css">
-    <title>Index</title>
-</head>
-
-<body>
-    <h1>Welcome to Poker!</h1>
-
-    <img class="poker_icon" src="/Assets/Overall UI/Poker Icon.png">
-
-    <h2>BET:</h2>
-
-    <div class="board_div">
-        <!-- <img class="board" src="/Assets/Poker/PokerTableRow.png" > -->
-        <table class="board">
+    <body>
+        <table class="top_part">
             <tr>
                 <td class="empty">
-                    
+                    <img class="poker_icon" src="/Assets/Overall UI/Poker Icon.png">
                 </td>
                 <td class="empty">
+                    <h1>Welcome to Poker!</h1>
+                    <h2>BET:</h2>
                 </td>
                 <td class="empty">
-                </td >
-                <td class="empty">
-                </td>
-                <td>
-                    <img src="/Assets/Cards/cardBack_blue2.png"> 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img class="card" src="/Assets/Cards/cardClubs10.png"> 
-                </td>
-                <td>
-                    <img class="card" src="/Assets/Cards/cardClubs10.png"> 
-                </td>
-                <td>
-                    <img class="card" src="/Assets/Cards/cardClubs10.png"> 
-                </td>
-                <td>
-                    <img class="card" src="/Assets/Cards/cardClubs10.png"> 
-                </td>
-                <td>
-                    <img class="card" src="/Assets/Cards/cardClubs10.png"> 
+                    <h1 id="deck_count"></h1>
                 </td>
             </tr>
         </table>
-    </div>
+
+        <div class="board_div">
+            <!-- <img class="board" src="/Assets/Poker/PokerTableRow.png" > -->
+            <table class="board">
+                <tr>
+                    <td class="empty"></td>
+                    <td class="empty"></td>
+                    <td class="empty"></td>
+                    <td class="empty"></td>
+                    <td>
+                        <img class="deck" src="../Assets/Cards/cardBack_blue2.png"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="card1" class="card" src="../Assets/Cards/cardBack_blue2.png"> 
+                    </td>
+                    <td>
+                        <img id="card2" class="card" src="../Assets/Cards/cardBack_blue2.png"> 
+                    </td>
+                    <td>
+                        <img id="card3" class="card" src="../Assets/Cards/cardBack_blue2.png"> 
+                    </td>
+                    <td>
+                        <img id="card4" class="card" src="../Assets/Cards/cardBack_blue2.png"> 
+                    </td>
+                    <td>
+                        <img id="card5" class="card" src="../Assets/Cards/cardBack_blue2.png"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="empty">
+                        <p id="holdCard1"></p>
+                    </td>
+                    <td class="empty">
+                        <p id="holdCard2"></p>
+                    </td>
+                    <td class="empty">
+                        <p id="holdCard3"></p>
+                    </td>
+                    <td class="empty">
+                        <p id="holdCard4"></p>
+                    </td>
+                    <td class="empty">
+                        <p id="holdCard5"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 
-    <div class="bottom_part">
+        <div class="bottom_part">
 
-        <div class="buttons">BACK</div>
+            <div class="buttons">BACK</div>
 
-        <!-- <div class="chips_div"> -->
-            <img class="chip" src="/Assets//Overall UI/Chip1.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip5.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip10.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip20.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip50.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip100.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip500.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip1000.png" >
-            <img class="chip" src="/Assets//Overall UI/Chip5000.png" >
-        <!-- </div> -->
+            <!-- <div class="chips_div"> -->
+                <img class="chip" src="/Assets//Overall UI/Chip1.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip5.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip10.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip20.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip50.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip100.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip500.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip1000.png" >
+                <img class="chip" src="/Assets//Overall UI/Chip5000.png" >
+            <!-- </div> -->
 
-        <div class="buttons">DRAW</div>
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-</body>
-
+            <div id="draw_button" class="buttons">DRAW</div>
+        </div>
+    </body>
 </html>

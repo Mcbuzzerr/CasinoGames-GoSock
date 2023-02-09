@@ -51,10 +51,22 @@ p {
     font-family: ChunkFive;
     font-size: 24px;
     color: #000;
-    background-image: url("/Assets/Overall UI/ButtonUp.png");
+    background-image: url("../Assets/Overall UI/ButtonUp.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    user-select: none;
+}
+
+.button:active {
+    background-image: url("../Assets/Overall UI/ButtonDown.png");
+    margin: 20px auto 15px auto;
+    padding: 15px 15px 15px 15px;
+    filter: brightness(70%);
+}
+
+.button:hover {
+    filter: brightness(80%);
 }
 
 #bank_button {
