@@ -1,52 +1,66 @@
-.center_header {
-    text-align: center;
-    margin: 5px;
+.flex_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex_column {
+    display: flex;
+    flex-direction: column;
 }
 
 #container {
     margin: auto;
-    padding: 10px;
+    padding: 0;
     width: 80%;
-    height: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #title {
-    background-color: #fff;
-    margin: 0;
-    left: 0;
-    right: 0;
-    top: 0;
+    margin: 0 0 2% 0;
     width: 100%;
-}
-
-#game_options {
-    text-align: center;
-    margin: auto;
-    width: 100%;
+    align-items: center;
 }
 
 #casino_icon {
-    width: 80%;
+    margin: 3% 0;
+    width: 40%;
 }
 
-table {
-    border-collapse: separate;
-    border-spacing: 0 40px;
-}
-
-p {
+a, p {
     font-family: ChunkFive;
     font-size: 50px;
+    text-decoration: none;
     color: #fff;
+    text-align: center;
+}
+
+#game_container {
+    margin: 2% 0 0 0;
+    width: 100%;
+}
+
+#game {
+    align-items: center;
 }
 
 .icon {
-    width: 65%;
+    width: 50%;
+    margin: 2% 0;
+}
+
+#bank_button {
+    margin: 0 50px 50px 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .button {
-    margin: 15px auto;
-    padding: 15px 15px 20px 15px;
+    margin: 15px 0;
+    padding: 15px 35px 20px 35px;
     width: fit-content;
     font-family: ChunkFive;
     font-size: 24px;
@@ -56,23 +70,18 @@ p {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     user-select: none;
+    transition: margin 30ms, padding 30ms, filter 150ms;
+    transition-timing-function: ease-in-out;
 }
 
 .button:active {
     background-image: url("../Assets/Overall UI/ButtonDown.png");
     margin: 20px auto 15px auto;
-    padding: 15px 15px 15px 15px;
+    padding: 15px 35px 15px 35px;
     filter: brightness(70%);
 }
 
 .button:hover {
     filter: brightness(80%);
     cursor: pointer;
-}
-
-#bank_button {
-    margin: 50px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
 }
