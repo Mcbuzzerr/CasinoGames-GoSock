@@ -149,6 +149,7 @@ p {
     text-align: center;
     transition: margin-top 30ms, padding 30ms, filter 150ms;
     transition-timing-function: ease-in-out;
+    text-decoration: none;
 }
 
 .buttons:active {
