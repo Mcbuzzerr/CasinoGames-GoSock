@@ -11,8 +11,12 @@ if (localStorage.getItem("cash") != null) {
     startingCash = 1000;
     localStorage.setItem("cash", startingCash);
 }
-document.getElementById("cashDisplay").innerText = "Cash: " + startingCash;
+let displayMoney = document.getElementById("cashDisplay");
+displayMoney.innerText = "Cash: " + startingCash;
 let bank = new Bank();
+
+let bet_label = document.getElementById("bet_label");
+let bet_money = 0;
 
 // HTML element that displays the num of cards left in the deck
 let deck_count = document.getElementById("deck_count");
@@ -58,7 +62,7 @@ function dealCards() {
         }
     });
 
-    // if (turn != 2) {
+    if (turn != 2) {
         if (count >= 2) {
             for (let i = 0; i < heldCards.length; i++) {
                 const isHeld = heldCards[i];
@@ -79,7 +83,7 @@ function dealCards() {
             turn++;
             console.log(turn);
         }
-    // } 
+    } 
     // else {
     //     let cardValue;
     //     for (let i = 0; i < cardList.length; i++) {
@@ -168,6 +172,115 @@ window.onload = (event) => {
         deck_count.innerHTML = "Cards Left: " + cardDeck.cards.length;
     });
 };
+
+// Grabs each chip HTML element and puts it in an array
+let chipList = [];
+for (let i = 0; i < 9; i++) {
+    chipList[i] = document.getElementById(`chip${i + 1}`);
+}
+
+for(let i = 0; i< chipList.length; i++){
+    switch (i) {
+        case 0:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 1){
+                    startingCash -=1;
+                    bet_money += 1;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 1:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 5){
+                    startingCash -=5;
+                    bet_money += 5;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 2:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 10){
+                    startingCash -=10;
+                    bet_money += 10;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 3:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 20){
+                    startingCash -=20;
+                    bet_money += 20;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 4:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 50){
+                    startingCash -=50;
+                    bet_money += 50;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 5:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 100){
+                    startingCash -=100;
+                    bet_money += 100;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 6:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 500){
+                    startingCash -=500;
+                    bet_money += 500;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 7:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 1000){
+                    startingCash -=1000;
+                    bet_money += 1000;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+        case 8:
+            chipList[i].addEventListener("click", function(event){
+                if (startingCash >= 5000){
+                    startingCash -=5000;
+                    bet_money += 5000;
+                    bet_label.innerHTML = "BET: " + bet_money;
+                }
+                displayMoney.innerText = "Cash: " + startingCash;
+            });
+            break;
+    }
+    
+}
+
+
+
+
+
+
+
 
 // Old code
 
