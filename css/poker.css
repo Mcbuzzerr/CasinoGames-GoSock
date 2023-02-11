@@ -147,12 +147,8 @@ p {
     padding: 50px 50px 55px 50px;
     user-select: none;
     text-align: center;
-    transition: margin-top 30ms, padding 30ms;
+    transition: margin-top 30ms, padding 30ms, filter 150ms;
     transition-timing-function: ease-in-out;
-}
-
-.buttons:hover {
-    filter: brightness(80%);
 }
 
 .buttons:active {
@@ -160,6 +156,10 @@ p {
     margin-top: 5px;
     padding: 50px 50px 50px 50px;
     filter: brightness(70%);
+}
+
+.buttons:hover {
+    filter: brightness(80%);
 }
 
 .button{
